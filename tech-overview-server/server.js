@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const express = require('express')
 const posts = require('./routes/postCreate')
+const category = require('./routes/categoryCreate')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -27,6 +28,8 @@ try {
   })
 
   app.use('/posts', posts)
+  app.use('/category', category)
+
   mongoose.set('strictQuery', true)
   mongoose
     .connect('mongodb://127.0.0.1:27017/tech_over_db')

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const express = require('express')
+const posts = require('./routes/postCreate')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -25,6 +26,7 @@ try {
     console.log(`Server Running on Port: ${port}`)
   })
 
+  app.use('/posts', posts)
   mongoose.set('strictQuery', true)
   mongoose
     .connect('mongodb://127.0.0.1:27017/tech_over_db')

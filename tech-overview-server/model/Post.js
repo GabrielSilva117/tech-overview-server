@@ -4,10 +4,17 @@ const { Schema } = mongoose
 const postSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
+    length: 30,
+    unique: true
   },
   body: {
     type: String,
+    required: true
+  },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
     required: true
   },
   active: {

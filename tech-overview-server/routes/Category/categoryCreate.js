@@ -14,14 +14,14 @@ router.post('/category', async (req, res) => {
     })
   }
 
-  if (name.length > 30) {
+  if (name.length > 15) {
     return res.status(401).json({
       Forbidden:
         'The category name surpass the limit of 30 characters. Try again!'
     })
   }
 
-  if (slug.length > 20) {
+  if (slug.length > 25) {
     return res.status(401).json({
       Forbidden: 'The slug name must contain a maximum length of 20 characters'
     })

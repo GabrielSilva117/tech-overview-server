@@ -16,15 +16,20 @@ router.post('/post', async (req, res) => {
     })
   }
 
-  if (title.length > 50 || title.length <= 0) {
+  if (title.length > 30) {
     return res.status(401).json({
       Forbidden: 'The title length is either too short or too big. Try again!'
     })
   }
 
+  if (catId.length !== 24) {
+    return res.status(401).json({
+      msg: 'Invalid category Id! Try again.'
+    })
+  }
   const Cat = await Category.findById({ _id: catId })
   if (!Cat) {
-    return res.status(403).json({
+    return res.status(401).json({
       Forbidden: 'You must select a valid category for the post'
     })
   }

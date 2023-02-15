@@ -17,8 +17,7 @@ router.get('/post', async (req, res) => {
   }
   const posts = await Post.find({})
 
-  if (!posts) {
-    console.log('test2')
+  if (posts.length === 0) {
     return res.status(200).json({
       msg: 'No posts available'
     })

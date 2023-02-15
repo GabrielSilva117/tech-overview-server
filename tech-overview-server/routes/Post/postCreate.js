@@ -22,9 +22,14 @@ router.post('/post', async (req, res) => {
     })
   }
 
+  if (catId.length !== 24) {
+    return res.status(401).json({
+      msg: 'Invalid category Id! Try again.'
+    })
+  }
   const Cat = await Category.findById({ _id: catId })
   if (!Cat) {
-    return res.status(403).json({
+    return res.status(401).json({
       Forbidden: 'You must select a valid category for the post'
     })
   }

@@ -16,7 +16,7 @@ router.post('/post', async (req, res) => {
     })
   }
 
-  if (title.length > 50 || title.length <= 0) {
+  if (title.length > 30) {
     return res.status(401).json({
       Forbidden: 'The title length is either too short or too big. Try again!'
     })

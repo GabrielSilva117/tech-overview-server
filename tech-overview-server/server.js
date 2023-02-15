@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
 const express = require('express')
-const posts = require('./routes/postCreate')
-const category = require('./routes/categoryCreate')
+const postCreate = require('./routes/Post/postCreate')
+const postRead = require('./routes/Post/postRead')
+const postUpdate = require('./routes/Post/postUpdate')
+const postDelete = require('./routes/Post/postDelete')
+const categoryCreate = require('./routes/Category/categoryCreate')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -27,8 +30,7 @@ try {
     console.log(`Server Running on Port: ${port}`)
   })
 
-  app.use('/posts', posts)
-  app.use('/category', category)
+  app.use([postCreate, categoryCreate, postRead, postDelete, postUpdate])
 
   mongoose.set('strictQuery', true)
   mongoose

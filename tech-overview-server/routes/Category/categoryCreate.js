@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-require('../model/Category')
+require('../../model/Category')
 const Category = mongoose.model('Category')
 const express = require('express')
 

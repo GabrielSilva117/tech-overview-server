@@ -4,12 +4,13 @@ const categorySchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    length: 30
+    unique: true,
+    length: 15
   },
   slug: {
     type: String,
     required: true,
-    length: 20
+    length: 25
   },
   active: {
     type: Boolean,

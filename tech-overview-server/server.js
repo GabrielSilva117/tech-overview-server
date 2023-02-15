@@ -6,6 +6,7 @@ const postUpdate = require('./routes/Post/postUpdate')
 const postDelete = require('./routes/Post/postDelete')
 const categoryCreate = require('./routes/Category/categoryCreate')
 const categoryRead = require('./routes/Category/categoryRead')
+const categoryUpdate = require('./routes/Category/categoryUpdate')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -38,6 +39,7 @@ try {
     postUpdate,
     categoryCreate,
     categoryRead,
+    categoryUpdate,
   ])
 
   mongoose.set('strictQuery', true)
